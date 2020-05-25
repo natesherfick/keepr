@@ -35,13 +35,13 @@ namespace Keepr.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        // [Authorize]
         public ActionResult<Keep> Post([FromBody] Keep newKeep)
         {
             try
             {
-                var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-                newKeep.UserId = userId;
+                // var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                // newKeep.UserId = userId;
                 return Ok(_ks.Create(newKeep));
             }
             catch (Exception e)
