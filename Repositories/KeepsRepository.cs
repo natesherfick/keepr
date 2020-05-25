@@ -39,7 +39,7 @@ namespace Keepr.Repositories
             return KeepData;
         }
 
-        internal bool delete(int id)
+        internal bool Delete(int id)
         {
             string sql = "DELETE FROM Keeps WHERE id = @Id LIMIT 1";
             int affectedRows = _db.Execute(sql, new {id});
