@@ -37,20 +37,6 @@ namespace Keepr.Controllers
             };
         }
 
-        [HttpGet("{vaultId}/keeps")]
-        public ActionResult<IEnumerable<VaultKeepViewModel>> GetKeepsByVaultId(int vaultId)
-        {
-          try
-          {
-            return Ok(_ks.GetKeepsByVaultId(vaultId));
-          }
-          catch (System.Exception err)
-          {
-              
-              return BadRequest(err.Message);
-          }
-        }
-
       [HttpPost]
       // [Authorize]
       public ActionResult<VaultsController> Create([FromBody] Vault newVault)
@@ -68,5 +54,19 @@ namespace Keepr.Controllers
         }
         
       }
+
+              [HttpGet("{vaultId}/keeps")]
+        public ActionResult<IEnumerable<VaultKeepViewModel>> GetKeepsByVaultId(int vaultId)
+        {
+          try
+          {
+            return Ok(_ks.GetKeepsByVaultId(vaultId));
+          }
+          catch (System.Exception err)
+          {
+              
+              return BadRequest(err.Message);
+          }
+        }
     }
 }
