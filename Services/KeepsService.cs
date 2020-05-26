@@ -43,5 +43,10 @@ namespace Keepr.Services
             }
             throw new Exception("Could not delete a Keep under requested id.");
         }
+
+    internal IEnumerable<VaultKeepViewModel> GetKeepsByVaultId(int vaultId)
+    {
+      return _repo.GetKeepsByVaultId(vaultId);
     }
+  }
 }

@@ -16,12 +16,41 @@ namespace Keepr.Controllers
     public class VaultsController : ControllerBase
     {
     private readonly VaultsService _vs;
+    private readonly KeepsService _ks;
 
-    public VaultsController(VaultsService vs)
+    public VaultsController(VaultsService vs, KeepsService ks)
       {
         _vs = vs;
+        _ks = ks;
       }
     
+      [HttpGet]
+      public ActionResult<IEnumerable<Vault>> Get()
+        {
+            try
+            {
+                return Ok(_vs.Get());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            };
+        }
+
+        [HttpGet("{vaultId}/keeps")]
+        public ActionResult<IEnumerable<VaultKeepViewModel>> GetKeepsByVaultId(int vaultId)
+        {
+          try
+          {
+            return Ok(_ks.GetKeepsByVaultId(vaultId));
+          }
+          catch (System.Exception err)
+          {
+              
+              return BadRequest(err.Message);
+          }
+        }
+
       [HttpPost]
       // [Authorize]
       public ActionResult<VaultsController> Create([FromBody] Vault newVault)

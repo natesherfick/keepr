@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using Dapper;
 using Keepr.Models;
@@ -13,6 +14,13 @@ namespace Keepr.Repositories
     {
       _db = db;
     }
+
+    internal IEnumerable<Vault> Get()
+        {
+            string sql = "SELECT * FROM Vaults";
+            return _db.Query<Vault>(sql);
+        }
+
     internal Vault Create(Vault newVault)
     {
       string sql = @"
