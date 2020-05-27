@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Welcome Home</h1>
-    <CreateKeep></CreateKeep>
+    <CreateKeep v-show="this.$auth.user"></CreateKeep>
     <Keep v-for="publicKeep in publicKeeps" :key="publicKeep.id" :keepData="publicKeep"/>
 
   </div>
