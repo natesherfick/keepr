@@ -1,6 +1,8 @@
 <template>
-  <div class="Keeps">
-
+  <div class="Keep">
+<div class="col-4">
+  {{keepData.name}}
+</div>
 
   </div>
 </template>
@@ -8,12 +10,18 @@
 
 <script>
 export default {
-  name: 'Keeps',
+  name: 'Keep',
+  props: ["keepData"],
   data(){
     return {}
   },
-  mounted:{}, 
-  computed:{},
+  mounted() {
+    
+  }, 
+  computed:{
+    
+
+  },
   methods:{},
   components:{}
 }

@@ -1,6 +1,8 @@
 using Keepr.Services;
 using Keepr.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using System;
 
 namespace Keepr.Controllers
 {
@@ -20,6 +22,11 @@ namespace Keepr.Controllers
     {
       try
       {
+        Claim userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+          if(userId == null){
+            throw new Exception("Please log in.");
+          }
+        newVaultKeep.UserId = userId.Value;
         return Ok(_vks.Create(newVaultKeep));
       }
       catch (System.Exception err)

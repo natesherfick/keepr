@@ -17,15 +17,29 @@ let api = Axios.create({
 
 export default new Vuex.Store({
   state: {
-    publicKeeps: []
+    publicKeeps: [],
+    
   },
-  mutations: {},
+  mutations: {
+    setPublicKeeps(state, publicKeeps){
+      state.publicKeeps = publicKeeps
+    }
+  },
   actions: {
     setBearer({}, bearer) {
       api.defaults.headers.authorization = bearer;
     },
     resetBearer() {
       api.defaults.headers.authorization = "";
+    },
+    async getPublicKeeps({commit, dispatch}) {
+      let res = await api.get("keeps")
+      commit("setPublicKeeps", res.data)
+    },
+    async createKeep({commit, dispatch}, newKeep) {
+      let res = await api.post("keeps", newKeep)
+      dispatch("getKeeps")
     }
+
   }
 });

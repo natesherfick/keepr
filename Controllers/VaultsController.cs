@@ -38,13 +38,16 @@ namespace Keepr.Controllers
         }
 
       [HttpPost]
-      // [Authorize]
+      [Authorize]
       public ActionResult<VaultsController> Create([FromBody] Vault newVault)
       {
         try
         {
-          // var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-          // newKeep.UserId = userId;
+          Claim userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+          if(userId == null){
+            throw new Exception("Please log in.");
+          }
+          newVault.UserId = userId.Value;
           return Ok(_vs.Create(newVault));
         }
           catch (System.Exception err)
@@ -55,7 +58,7 @@ namespace Keepr.Controllers
         
       }
 
-              [HttpGet("{vaultId}/keeps")]
+      [HttpGet("{vaultId}/keeps")]
         public ActionResult<IEnumerable<VaultKeepViewModel>> GetKeepsByVaultId(int vaultId)
         {
           try
