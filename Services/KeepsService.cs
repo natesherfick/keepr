@@ -34,14 +34,15 @@ namespace Keepr.Services
             return _repo.Create(newKeep);
         }
 
-        public Keep Delete(int id)
+        public string Delete(int id, string userId)
         {
             Keep foundKeep = GetById(id);
-            if(_repo.Delete(id))
+            if(foundKeep.UserId != userId)
             {
-            return foundKeep;
+            throw new Exception("Unable to delete this Keep.");
             }
-            throw new Exception("Could not delete a Keep under requested id.");
+            _repo.Delete(id, userId);
+            return "Successfully deleted Keep!";
         }
 
     internal IEnumerable<VaultKeepViewModel> GetKeepsByVaultId(int vaultId)
