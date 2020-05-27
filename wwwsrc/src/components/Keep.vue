@@ -2,6 +2,8 @@
   <div class="Keep">
 <div class="col-4">
   {{keepData.name}}
+  {{keepData.views}}
+  {{keepData.keeps}}
 </div>
 <button class="btn btn-danger" @click="deleteKeep(keepData.id)">X</button>
 
@@ -27,7 +29,7 @@ export default {
     deleteKeep(keepId){
       this.$store.dispatch("deleteKeep", keepId)
     },
-    
+
   },
   components:{}
 }

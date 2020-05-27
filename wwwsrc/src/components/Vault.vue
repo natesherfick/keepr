@@ -1,6 +1,6 @@
 <template>
   <div class="Vault">
-  <div>
+  <div @click="goToVault()">
     {{vaultData.name}}
   </div>
 
@@ -18,8 +18,15 @@ export default {
   mounted() {
 
   }, 
-  computed:{},
-  methods:{},
+  computed:{
+    
+  },
+  methods:{
+    goToVault(vaultId){
+      console.log("going");
+      this.$store.commit("setVaultKeeps", [])
+      this.$store.dispatch("getVaultKeeps", this.vaultData.id)}
+  },
   components:{}
 }
 </script>
