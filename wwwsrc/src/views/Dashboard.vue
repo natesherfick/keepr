@@ -1,8 +1,10 @@
 <template>
   <div class="dashboard">
-    <h1>WELCOME TO THE DASHBOARD</h1>
+    <h1>User Vaults</h1>
     <Vault v-for="userVault in userVaults" :key="userVault.id" :vaultData="userVault"/>
-    <div v-for="keep in vaultKeeps" :key="keep.id">{{keep.name}}</div>
+    <Keep v-for="keep in vaultKeeps" :key="keep.id" :keepData="keep"/>
+    <hr>
+    <h1>User Keeps</h1>
     <Keep v-for="userKeep in userKeeps" :key="userKeep.id" :keepData="userKeep"/>
     <!-- public {{ publicKeeps }} user {{ userKeeps }} -->
   </div>

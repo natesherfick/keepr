@@ -71,6 +71,11 @@ export default new Vuex.Store({
       await api.delete("keeps/"+ keepId)
       dispatch("getPublicKeeps")
     },
+    async deleteVault({dispatch}, vaultId){
+      await api.delete("vaults/"+ vaultId)
+      dispatch("getVaults")
+    },
+
 
   }
 });

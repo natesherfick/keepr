@@ -24,5 +24,11 @@ namespace Keepr.Services
     {
       return _repo.Create(newVault);
     }
+
+    public string Delete(int id, string userId)
+    {
+      _repo.Delete(id, userId);
+      return "Successfully deleted Vault!";
+    }
   }
 }
