@@ -1,6 +1,6 @@
 <template>
   <div class="Keep px-1 d-inline-block" style="min-width:12rem; max-width:20rem">
-<div class="card">
+<div class="card" @click="goToKeep()">
   <img v-show=keepData.img class="card-img-top" :src=keepData.img alt="Error loading image">
   <div class="card-body">
     <h5 class="card-title">{{keepData.name}}</h5>
@@ -33,6 +33,12 @@ export default {
       if(window.confirm("Are you sure you want to delete this vault?")){
       this.$store.dispatch("deleteKeep", keepId)
       }
+    },
+    goToKeep(){
+      this.$router.push({
+      name:"KeepDetails",
+      params:{ keepId: this.keepData.id }
+      })
     },
 
   },
