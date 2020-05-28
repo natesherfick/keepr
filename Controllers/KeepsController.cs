@@ -38,7 +38,8 @@ namespace Keepr.Controllers
     public ActionResult<IEnumerable<Keep>> GetByUser(string userId)
     {
       try
-      { Claim user = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+      {
+        Claim user = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
         if (user == null)
         {
           throw new Exception("Please log in.");
@@ -104,6 +105,27 @@ namespace Keepr.Controllers
       {
 
         return BadRequest(err.Message);
+      }
+    }
+
+    [HttpPut("{id}")]
+    public ActionResult<Keep> Edit([FromBody] Keep keepToUpdate)
+    {
+      try
+      {
+        Claim user = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+        if (user == null)
+        {
+          throw new Exception("Please log in.");
+        }
+        string userId = user.Value;
+        return Ok(_ks.Edit(keepToUpdate, userId));
+
+      }
+      catch (System.Exception)
+      {
+
+        throw;
       }
     }
 

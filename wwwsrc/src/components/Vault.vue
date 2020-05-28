@@ -1,8 +1,17 @@
 <template>
   <div class="Vault">
   <div @click="goToVault()">
-    <h3>{{vaultData.name}}</h3>
-    <button class="btn-small btn-danger" @click="deleteVault(vaultData.id)">x</button>
+
+  <h4 class="text-center" v-if="!editingName">
+  <b>{{vaultData.name}}</b>
+      </h4>
+      <div v-else class="mb-2 text-center">
+        <input class="text-center" type="text" width="30" @keyup.enter="editVaultName()" v-model="vaultData.name" />
+      </div>    
+      
+      <button class="btn-small btn-light" @click="editingName = true">Edit Vault</button>
+
+      <button class="btn-small btn-danger" @click="deleteVault(vaultData.id)">x</button>
   </div>
 
   </div>
@@ -14,7 +23,9 @@ export default {
   name: 'Vault',
   props: ["vaultData"],
   data(){
-    return {}
+    return {
+      editingName: false
+    }
   },
   mounted() {
 
@@ -32,6 +43,11 @@ export default {
       if(window.confirm("Are you sure you want to delete this vault?")){
       this.$store.dispatch("deleteVault", vaultId)
       }
+    },
+    editVaultName() {
+      console.log(this.vaultData);
+      this.$store.dispatch("editVaultName", this.vaultData)
+      this.editingName = false
     },
   },
   components:{}

@@ -16,9 +16,9 @@ namespace Keepr.Services
     }
 
     public IEnumerable<Vault> Get(string userId)
-        {
-            return _repo.Get(userId);
-        }
+    {
+      return _repo.Get(userId);
+    }
 
     internal Vault Create(Vault newVault)
     {
@@ -30,5 +30,11 @@ namespace Keepr.Services
       _repo.Delete(id, userId);
       return "Successfully deleted Vault!";
     }
+
+    internal Vault Edit(Vault vaultToUpdate, string userId)
+    {
+      return _repo.Edit(vaultToUpdate);
+    }
+
   }
 }

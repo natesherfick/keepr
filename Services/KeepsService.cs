@@ -49,6 +49,20 @@ namespace Keepr.Services
       return "Successfully deleted Keep!";
     }
 
+    internal Keep Edit(Keep keepToUpdate, string userId)
+    {
+        Keep foundKeep = GetById(keepToUpdate.Id);
+        if (foundKeep.UserId != userId)
+        {
+            throw new Exception("UserId does not match.");
+        }
+        else
+        {
+        return _repo.Edit(keepToUpdate);
+        }
+
+    }
+
 
     internal IEnumerable<VaultKeepViewModel> GetKeepsByVaultId(int vaultId, string userId)
     {

@@ -39,5 +39,17 @@ namespace Keepr.Repositories
       int affectedRows = _db.Execute(sql, new { id, userId });
       return affectedRows == 1;
     }
+
+    internal Vault Edit(Vault vaultToUpdate)
+    {
+        string sql = @"
+        UPDATE vaults
+        SET
+        name = @Name
+        WHERE id = @Id";
+        _db.Execute(sql, vaultToUpdate);
+        return vaultToUpdate;
+    }
+
   }
 }

@@ -107,5 +107,26 @@ namespace Keepr.Controllers
         return BadRequest(err.Message);
       }
     }
+
+    [HttpPut("{id}")]
+    public ActionResult<Vault> Edit([FromBody] Vault vaultToUpdate)
+    {
+      try
+      {
+        Claim user = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+        if (user == null)
+        {
+          throw new Exception("Please log in.");
+        }
+        string userId = user.Value;
+        return Ok(_vs.Edit(vaultToUpdate, userId));
+
+      }
+      catch (System.Exception)
+      {
+
+        throw;
+      }
+    }
   }
 }

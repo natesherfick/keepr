@@ -89,6 +89,15 @@ export default new Vuex.Store({
       await api.delete("vaults/"+ vaultId)
       dispatch("getVaults")
     },
+    async editKeepName({commit, dispatch}, activeKeep){
+      await api.put("keeps/"+ activeKeep.id, activeKeep)
+      dispatch("getActiveKeep")
+    },
+    async editVaultName({commit, dispatch}, activeVault){
+      await api.put("vaults/"+ activeVault.id, activeVault)
+      dispatch("getVaults")
+    },
+
 
 
   }

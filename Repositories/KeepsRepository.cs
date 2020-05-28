@@ -50,6 +50,17 @@ namespace Keepr.Repositories
       return affectedRows == 1;
     }
 
+    internal Keep Edit(Keep keepToUpdate)
+    {
+        string sql = @"
+        UPDATE keeps
+        SET
+        name = @Name
+        WHERE id = @Id";
+        _db.Execute(sql, keepToUpdate);
+        return keepToUpdate;
+    }
+
     internal IEnumerable<VaultKeepViewModel> GetKeepsByVaultId(int vaultId, string userId)
     {
       string sql = @"

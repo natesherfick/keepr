@@ -29,11 +29,7 @@ export default {
 
   },
   methods:{
-    deleteKeep(keepId){
-      if(window.confirm("Are you sure you want to delete this keep?")){
-      this.$store.dispatch("deleteKeep", keepId)
-      }
-    },
+ 
     goToKeep(){
       this.$store.commit("setActiveKeep", {})
       this.$router.push({

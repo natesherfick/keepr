@@ -12,12 +12,20 @@
       <h4 class="text-center">{{activeKeep.description}}</h4>
 
   <img v-show=activeKeep.img class="card-img-top" :src=activeKeep.img alt="Error loading image">
+<div class="row">
+      <div class="col-6 text-right"><b>Views</b></div>
+      <div class="col-6"><b>Keeps</b></div>
+      <div class="col-6 text-right">{{activeKeep.views}}</div>
+      <div class="col-6">{{activeKeep.keeps}}</div>
+      <div class="col-12 text-center"><button v-if="this.$auth.user.sub == activeKeep.userId" class="btn-small btn-danger" @click="deleteKeep(activeKeep.id)">delete</button></div>
+</div>
 
-    <p>{{activeKeep.views}}, {{activeKeep.keeps}}</p>
-
-          <button v-if="this.$auth.user.sub == activeKeep.userId" class="btn-small btn-danger" @click="deleteKeep(activeKeep.id)">x</button>
+          
 </div>
   </div>
+
+
+
 </div>
 </template>
 
@@ -40,9 +48,15 @@ export default {
   },
   methods:{
     editKeepName() {
+      console.log(this.activeKeep);
       this.$store.dispatch("editKeepName", this.activeKeep)
       this.editingName = false
-    }
+    },
+       deleteKeep(keepId){
+      if(window.confirm("Are you sure you want to delete this keep?")){
+      this.$store.dispatch("deleteKeep", keepId)
+      }
+    },
   },
   components:{}
 }

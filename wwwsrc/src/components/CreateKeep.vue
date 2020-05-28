@@ -17,7 +17,7 @@
     </div>
 
     <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="isPrivateCheck">
+    <input v-model="newKeep.isPrivate" class="form-check-input" type="checkbox" value="" id="isPrivateCheck">
     <label class="form-check-label" for="isPrivateCheck">
     Hide your Keep from others
   </label>
@@ -36,6 +36,7 @@ export default {
   name: 'CreateKeep',
   data(){
     return {
+      isPrivate: false,
       newKeep: {}
     }
   },
@@ -43,6 +44,7 @@ export default {
   computed:{},
   methods:{
     createKeep(){
+      debugger
       this.$store.dispatch("createKeep", this.newKeep);
       document.getElementById("keepForm").reset();
     }
