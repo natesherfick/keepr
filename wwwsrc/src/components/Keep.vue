@@ -1,6 +1,6 @@
 <template>
-  <div class="Keep" display="inline-block">
-<div class="card my-3" style="width: 18rem;">
+  <div class="Keep px-1 d-inline-block" style="min-width:12rem; max-width:20rem">
+<div class="card">
   <img v-show=keepData.img class="card-img-top" :src=keepData.img alt="Error loading image">
   <div class="card-body">
     <h5 class="card-title">{{keepData.name}}</h5>
