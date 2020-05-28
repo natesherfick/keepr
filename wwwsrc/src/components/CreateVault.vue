@@ -2,12 +2,13 @@
   <div class="CreateVault">
     <form id="vaultForm" @submit.prevent="createVault()">
     <div class="form-group">
-      <label for="name">Name</label>
-      <input v-model="newVault.name" type="text" name="name" class="form-control" placeholder="Enter Vault Name"/>
+      <label for="name">Name*</label>
+      <input required v-model="newVault.name" type="text" name="name" class="form-control" placeholder="Enter Vault Name"/>
     </div>
     <div class="form-group">
-      <label for="description">Description</label>
-      <input v-model="newVault.description" type="text" name="description" class="form-control" placeholder="Enter Vault Description"/>
+      <label for="description">Description*</label>
+      <input required v-model="newVault.description" type="text" name="description" class="form-control" placeholder="Enter Vault Description"/>
+      <small>*required fields</small>
     </div>
   <div>
   <button type="submit" class="btn btn-light">Create Vault</button>

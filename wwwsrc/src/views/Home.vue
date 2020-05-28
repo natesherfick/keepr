@@ -1,5 +1,5 @@
 <template>
-  <div class="home container">
+  <div class="home container-fluid">
     <div class="row">
       <h2 class="col-5 text-center">Create a Keep</h2><h2 class="col-5 text-center">Create a Vault</h2>
     <CreateKeep class="col-5" v-show="this.$auth.user"></CreateKeep>

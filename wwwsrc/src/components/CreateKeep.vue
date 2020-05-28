@@ -2,16 +2,18 @@
   <div class="CreateKeep">
     <form id="keepForm" @submit.prevent="createKeep()">
     <div class="form-group">
-      <label for="name">Name</label>
-      <input v-model="newKeep.name" type="text" name="name" class="form-control" placeholder="Enter Keep Name"/>
+      <label for="name">Name*</label>
+      <input required v-model="newKeep.name" type="text" name="name" class="form-control" placeholder="Enter Keep Name"/>
     </div>
     <div class="form-group">
-      <label for="description">Description</label>
-      <input v-model="newKeep.description" type="text" name="description" class="form-control" placeholder="Enter Keep Description"/>
+      <label for="description">Description*</label>
+      <input required v-model="newKeep.description" type="text" name="description" class="form-control" placeholder="Enter Keep Description"/>
     </div>
     <div class="form-group">
       <label for="img">Image URL</label>
       <input v-model="newKeep.img" type="text" name="img" class="form-control" placeholder="Enter Image URL"/>
+            <small>*required fields</small>
+
     </div>
 
     <div class="form-check">

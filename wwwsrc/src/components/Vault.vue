@@ -1,8 +1,8 @@
 <template>
   <div class="Vault">
   <div @click="goToVault()">
-    {{vaultData.name}}
-    <button class="btn btn-danger" @click="deleteVault(vaultData.id)">x</button>
+    <h3>{{vaultData.name}}</h3>
+    <button class="btn-small btn-danger" @click="deleteVault(vaultData.id)">x</button>
   </div>
 
   </div>
@@ -29,7 +29,9 @@ export default {
       this.$store.dispatch("getVaultKeeps", this.vaultData.id)
       },
     deleteVault(vaultId){
+      if(window.confirm("Are you sure you want to delete this vault?")){
       this.$store.dispatch("deleteVault", vaultId)
+      }
     },
   },
   components:{}

@@ -1,8 +1,14 @@
 <template>
-  <div class="dashboard">
+  <div class="dashboard container-fluid">
     <h1>User Vaults</h1>
+    <div class="row">
+      <div class="col-3">
     <Vault v-for="userVault in userVaults" :key="userVault.id" :vaultData="userVault"/>
+    </div>
+    <div class="col-9">
     <Keep v-for="keep in vaultKeeps" :key="keep.id" :keepData="keep"/>
+    </div>
+    </div>
     <hr>
     <h1>User Keeps</h1>
     <div class="card-columns">
