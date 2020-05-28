@@ -5,7 +5,9 @@
     <Keep v-for="keep in vaultKeeps" :key="keep.id" :keepData="keep"/>
     <hr>
     <h1>User Keeps</h1>
+    <div class="card-columns">
     <Keep v-for="userKeep in userKeeps" :key="userKeep.id" :keepData="userKeep"/>
+    </div>
     <!-- public {{ publicKeeps }} user {{ userKeeps }} -->
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="CreateVault">
-    <form @submit.prevent="createVault()">
+    <form id="vaultForm" @submit.prevent="createVault()">
     <div class="form-group">
       <label for="name">Name</label>
       <input v-model="newVault.name" type="text" name="name" class="form-control" placeholder="Enter Vault Name"/>
@@ -30,6 +30,7 @@ export default {
   methods:{
     createVault(){
       this.$store.dispatch("createVault", this.newVault);
+      document.getElementById("vaultForm").reset();
     }
   },
   components:{}

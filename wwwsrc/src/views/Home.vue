@@ -5,7 +5,9 @@
     <CreateKeep class="col-5" v-show="this.$auth.user"></CreateKeep>
     <CreateVault class="col-5" v-show="this.$auth.user"></CreateVault>
     </div>
+    <div class="card-columns">
     <Keep v-for="publicKeep in publicKeeps" :key="publicKeep.id" :keepData="publicKeep"/>
+    </div>
 
   </div>
 </template>

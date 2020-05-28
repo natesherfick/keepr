@@ -1,6 +1,6 @@
 <template>
   <div class="CreateKeep">
-    <form @submit.prevent="createKeep()">
+    <form id="keepForm" @submit.prevent="createKeep()">
     <div class="form-group">
       <label for="name">Name</label>
       <input v-model="newKeep.name" type="text" name="name" class="form-control" placeholder="Enter Keep Name"/>
@@ -42,6 +42,7 @@ export default {
   methods:{
     createKeep(){
       this.$store.dispatch("createKeep", this.newKeep);
+      document.getElementById("keepForm").reset();
     }
   },
   components:{}
