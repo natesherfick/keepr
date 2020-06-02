@@ -44,7 +44,7 @@ export default {
   computed:{},
   methods:{
     createKeep(){
-      debugger
+      
       this.$store.dispatch("createKeep", this.newKeep);
       document.getElementById("keepForm").reset();
     }

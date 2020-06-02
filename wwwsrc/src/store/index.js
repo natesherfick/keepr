@@ -81,6 +81,14 @@ export default new Vuex.Store({
       dispatch("getPublicKeeps")
     },
 
+    async addKeepToVault({dispatch}, vaultKeep){
+      try {
+        await api.post("vaultkeeps/", vaultKeep)
+      } catch (error) {
+        console.error(error, "could not add Keep to Vault")
+      }
+    },
+
     async deleteKeep({dispatch}, keepId){
       await api.delete("keeps/"+ keepId)
       dispatch("getPublicKeeps")
