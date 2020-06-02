@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard container-fluid">
-    <h1>User Vaults</h1>
+    <h1>My Vaults</h1>
     <div class="row">
       <div class="col-3">
     <Vault v-for="userVault in userVaults" :key="userVault.id" :vaultData="userVault"/>
@@ -10,7 +10,7 @@
     </div>
     </div>
     <hr>
-    <h1>User Keeps</h1>
+    <h1>My Keeps</h1>
     <div class="card-columns">
     <Keep v-for="userKeep in userKeeps" :key="userKeep.id" :keepData="userKeep"/>
     </div>

@@ -5,7 +5,7 @@
   <div class="card-body">
     <h5 class="card-title">{{keepData.name}}</h5>
     <p class="card-text">{{keepData.description}}</p>
-    <p>{{keepData.views}}, {{keepData.keeps}}</p>
+    <!-- <p>{{keepData.views}}, {{keepData.keeps}}</p> -->
     
   </div>
 </div>

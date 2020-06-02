@@ -10,8 +10,8 @@
       <input required v-model="newKeep.description" type="text" name="description" class="form-control" placeholder="Enter Keep Description"/>
     </div>
     <div class="form-group">
-      <label for="img">Image URL</label>
-      <input v-model="newKeep.img" type="text" name="img" class="form-control" placeholder="Enter Image URL"/>
+      <label for="img">Image URL*</label>
+      <input required v-model="newKeep.img" type="text" name="img" class="form-control" placeholder="Enter Image URL"/>
             <small>*required fields</small>
 
     </div>
