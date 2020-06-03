@@ -1,17 +1,18 @@
 <template>
   <div class="Vault">
-  <div @click="goToVault()">
+  <div>
 
-  <h4 class="text-center" v-if="!editingName">
+  <h4 class="" v-if="!editingName">
   <b>{{vaultData.name}}</b>
       </h4>
       <div v-else class="mb-2 text-center">
         <input class="text-center" type="text" width="30" @keyup.enter="editVaultName()" v-model="vaultData.name" />
       </div>    
-      
-      <button class="btn btn-light" @click="editingName = true">Edit Vault</button>
+            <button class="btn btn-light" @click="goToVault()">Open</button>
 
-      <button class="btn btn-danger" @click="deleteVault(vaultData.id)">x</button>
+      <button class="btn btn-warning mx-2" @click="editingName = true">Edit</button>
+
+      <button class="btn btn-danger" @click="deleteVault(vaultData.id)">Delete</button>
   </div>
 
   </div>
