@@ -1,12 +1,8 @@
 <template>
   <div class="home container-fluid">
-    <div class="row">
-      <h2 class="col-5 text-center">Create a Keep</h2><h2 class="col-5 text-center">Create a Vault</h2>
-    <CreateKeep class="col-5" v-show="this.$auth.user"></CreateKeep>
-    <CreateVault class="col-5" v-show="this.$auth.user"></CreateVault>
-    </div>
-    <hr>
-    <div class="card-columns">
+
+<br>
+   <div class="card-columns">
     <Keep v-for="publicKeep in publicKeeps" :key="publicKeep.id" :keepData="publicKeep"/>
     </div>
 

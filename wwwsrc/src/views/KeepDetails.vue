@@ -18,7 +18,7 @@
       <div class="col-6 text-right">{{activeKeep.views}}</div>
       <div class="col-6">{{activeKeep.keeps}}</div> -->
 
-      <div class="dropdown">
+      <div class="dropdown col-6 text-right">
   <button class="btn btn-secondary dropdown-toggle" @click="getVaults()" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Add Keep to a Vault
   </button>
@@ -29,7 +29,7 @@
 
 
 
-      <div class="col-12 text-center"><button v-if="this.$auth.user.sub == activeKeep.userId" class="btn-small btn-danger" @click="deleteKeep(activeKeep.id)">delete</button></div>
+      <div class="col-6"><button v-if="this.$auth.user.sub == activeKeep.userId" class="btn btn-danger" @click="deleteKeep(activeKeep.id)">delete</button></div>
 </div>
 
           

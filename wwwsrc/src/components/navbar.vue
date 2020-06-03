@@ -30,6 +30,52 @@
         </li>
       </ul>
       <span class="navbar-text">
+
+
+        <!-- Button trigger modal -->
+<button v-show="this.$auth.user" type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#keepModal">
+  Create Keep
+</button>
+
+<button v-show="this.$auth.user" type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#vaultModal">
+  Create Vault
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="keepModal" tabindex="-1" role="dialog" aria-labelledby="keepModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="keepModalLabel">Create Keep</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <CreateKeep></CreateKeep>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="vaultModal" tabindex="-1" role="dialog" aria-labelledby="vaultModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="vaultModalLabel">Create Keep</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <CreateVault/>
+      </div>
+    </div>
+  </div>
+</div>
+
+
         <button
           class="btn btn-success"
           @click="login"
@@ -45,6 +91,8 @@
 
 <script>
 import axios from "axios";
+import CreateKeep from "../components/CreateKeep.vue"
+import CreateVault from "../components/CreateVault.vue"
 
 let _api = axios.create({
   baseURL: "https://localhost:5001",
@@ -63,6 +111,10 @@ export default {
       this.$store.dispatch("resetBearer");
       await this.$auth.logout({ returnTo: window.location.origin });
     }
+  },
+  components: {
+    CreateKeep,
+    CreateVault
   }
 };
 </script>

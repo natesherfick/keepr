@@ -9,9 +9,9 @@
         <input class="text-center" type="text" width="30" @keyup.enter="editVaultName()" v-model="vaultData.name" />
       </div>    
       
-      <button class="btn-small btn-light" @click="editingName = true">Edit Vault</button>
+      <button class="btn btn-light" @click="editingName = true">Edit Vault</button>
 
-      <button class="btn-small btn-danger" @click="deleteVault(vaultData.id)">x</button>
+      <button class="btn btn-danger" @click="deleteVault(vaultData.id)">x</button>
   </div>
 
   </div>
