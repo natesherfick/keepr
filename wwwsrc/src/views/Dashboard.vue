@@ -6,7 +6,7 @@
     <Vault v-for="userVault in userVaults" :key="userVault.id" :vaultData="userVault"/>
     </div>
     <div class="col-9">
-    <Keep v-for="keep in vaultKeeps" :key="keep.id" :keepData="keep"/>
+    <VaultKeep v-for="keep in vaultKeeps" :key="keep.id" :keepData="keep"/>
     </div>
     </div>
     <hr>
@@ -21,6 +21,7 @@
 <script>
 import Vault from "../components/Vault.vue"
 import Keep from "../components/Keep.vue"
+import VaultKeep from "../components/VaultKeep.vue"
 export default {
   name: "dashboard",
   mounted() {
@@ -38,7 +39,8 @@ export default {
   },
   components:{
     Vault,
-    Keep
+    Keep,
+    VaultKeep
   }
 };
 </script>
