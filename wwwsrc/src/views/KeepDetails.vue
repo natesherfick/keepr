@@ -23,7 +23,7 @@
     Add Keep to a Vault
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a v-for="userVault in userVaults" :key="userVault.id" @click="addKeepToVault(userVault.id)">{{userVault.name}}</a>
+    <div v-for="userVault in userVaults" :key="userVault.id" @click="addKeepToVault(userVault.id)"><a class="dropdown-item" style="cursor: pointer"><b>{{userVault.name}}</b></a></div>
   </div>
 </div>
 
