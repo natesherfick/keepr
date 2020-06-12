@@ -26,10 +26,10 @@ namespace Keepr.Repositories
       return newVaultKeep;
     }
 
-    internal bool Delete(int id)
+    internal bool Delete(int id, string userId)
     {
-      string sql = "DELETE FROM vaultkeeps WHERE id = @Id LIMIT 2";
-      int affectedRows = _db.Execute(sql, new {id});
+      string sql = "DELETE FROM vaultkeeps WHERE id = @Id AND userId = @userId LIMIT 1";
+      int affectedRows = _db.Execute(sql, new { id, userId });
       return affectedRows == 1;
     }
     

@@ -59,6 +59,8 @@ export default new Vuex.Store({
     async getActiveKeep({commit}, keepId) {
       let res = await api.get("keeps/" + keepId)
       commit("setActiveKeep", res.data)
+      console.log(res.data);
+      
     },
 
     async getVaults({commit, dispatch}) {

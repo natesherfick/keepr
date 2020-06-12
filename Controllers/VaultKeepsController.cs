@@ -23,9 +23,10 @@ namespace Keepr.Controllers
       try
       {
         Claim userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
-          if(userId == null){
-            throw new Exception("Please log in.");
-          }
+        if (userId == null)
+        {
+          throw new Exception("Please log in.");
+        }
         newVaultKeep.UserId = userId.Value;
         return Ok(_vks.Create(newVaultKeep));
       }
@@ -41,12 +42,19 @@ namespace Keepr.Controllers
     {
       try
       {
-          return Ok(_vks.Delete(id));
+        Claim userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+        if (userId == null)
+        {
+          throw new Exception("Please log in.");
+        }
+        string user = userId.Value;
+        
+        return Ok(_vks.Delete(id, user));
       }
       catch (System.Exception err)
       {
-          
-          return BadRequest(err.Message);
+
+        return BadRequest(err.Message);
       }
     }
   }

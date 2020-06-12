@@ -18,9 +18,9 @@ namespace Keepr.Services
       return _repo.Create(newVaultKeep);
     }
 
-    internal string Delete(int id)
+    internal string Delete(int id, string user)
     {
-      if(_repo.Delete(id))
+      if(_repo.Delete(id, user))
       {
         return "Removed from Vault!";
       }
