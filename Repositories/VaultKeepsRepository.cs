@@ -28,7 +28,7 @@ namespace Keepr.Repositories
 
     internal bool Delete(int id)
     {
-      string sql = "DELETE FROM vaultkeeps WHERE id = @Id LIMIT 1";
+      string sql = "DELETE FROM vaultkeeps WHERE id = @Id LIMIT 2";
       int affectedRows = _db.Execute(sql, new {id});
       return affectedRows == 1;
     }

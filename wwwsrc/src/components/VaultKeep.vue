@@ -40,7 +40,8 @@ export default {
     },
 
     removeFromVault(){
-      this.$store.dispatch("removeFromVault", this.keepData.id)
+      console.log(this.keepData.vaultKeepId);
+      this.$store.dispatch("removeFromVault", this.keepData.vaultKeepId)
     }
 
   },

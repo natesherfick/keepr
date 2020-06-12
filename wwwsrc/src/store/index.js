@@ -89,6 +89,15 @@ export default new Vuex.Store({
       }
     },
 
+    async removeFromVault({dispatch}, vaultKeepId){
+      try {
+        await api.delete("vaultkeeps/" + vaultKeepId)
+        dispatch("getVaultKeeps", vaultKeepId)
+      } catch (error) {
+        console.error(error, "couldn't remove keep from Vault")
+      }
+    },
+
     async deleteKeep({dispatch}, keepId){
       await api.delete("keeps/"+ keepId)
       dispatch("getPublicKeeps")
